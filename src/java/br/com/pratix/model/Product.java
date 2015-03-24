@@ -21,6 +21,11 @@ public class Product implements Serializable {
     
     private static final long serialVersionUID = 1L;
 
+    public Product(Integer id, String name ){
+        this.id     = id ;
+        this.name   = name ;
+    }
+    
     /**
      * @return the serialVersionUID
      */

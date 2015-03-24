@@ -21,9 +21,9 @@ public class ProductTest {
         EntityManager  em = emf.createEntityManager();
         
         try {
-            Product product = new Product();
+            Product product = new Product(10, "name 1");
             
-            product.setName("test1");
+            
             
             em.getTransaction().begin();
             em.persist(product);
