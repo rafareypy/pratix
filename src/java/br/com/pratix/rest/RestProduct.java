@@ -5,21 +5,9 @@
  */
 package br.com.pratix.rest;
 
-import br.com.pratix.control.ProductController;
-import br.com.pratix.dao.ProductDAO;
-import br.com.pratix.model.Product;
 import br.com.pratix.service.interfaces.ProductService;
 import br.com.pratix.services.ProductServiceImpl;
-import br.com.pratix.util.JPAUtil;
 import com.google.gson.Gson;
-import java.util.LinkedList;
-import java.util.List;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.UriInfo;
-import javax.ws.rs.PathParam;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
