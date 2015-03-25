@@ -6,11 +6,13 @@
 package br.com.pratix.dao;
 
 import br.com.pratix.model.Product;
+import br.com.pratix.util.JPAUtil;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 
 /**
  *
@@ -19,8 +21,14 @@ import javax.persistence.PersistenceContext;
 @Stateless
 public class ProductDAO implements Serializable{
     
-    @PersistenceContext(unitName = "pratixPU")
+    @PersistenceUnit(unitName = "pratixPU")
     private EntityManager em ;
+    
+    public ProductDAO(){
+        em = JPAUtil.getEntityManager();
+    }
+            
+    
     private List<Product> products ;
 
     /**

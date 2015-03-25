@@ -26,6 +26,10 @@ public class ProductController implements Serializable{
      * @return the productDAO
      */
     public ProductDAO getProductDAO() {
+        if(productDAO == null){
+            productDAO = new ProductDAO();
+        }
+            
         return productDAO;
     }
 

@@ -5,10 +5,18 @@
  */
 package br.com.pratix.rest;
 
+import br.com.pratix.control.ProductController;
+import br.com.pratix.dao.ProductDAO;
 import br.com.pratix.model.Product;
+import br.com.pratix.service.interfaces.ProductService;
+import br.com.pratix.services.ProductServiceImpl;
+import br.com.pratix.util.JPAUtil;
 import com.google.gson.Gson;
 import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.PathParam;
@@ -42,14 +50,9 @@ public class RestProduct {
     @Produces("application/json")
     public String getJson() {
         
-        List<Product> list = new LinkedList<Product>();
+        ProductService productService = new ProductServiceImpl();
+        return new Gson().toJson(productService.getListProduct());
         
-        for (int i = 0; i < 10; i++) {
-            
-            list.add(new Product(i, "Product " + i));
-        }
-        
-        return new Gson().toJson(list);
     }
 
     /**
@@ -60,5 +63,6 @@ public class RestProduct {
     @PUT
     @Consumes("application/json")
     public void putJson(String content) {
+        
     }
 }

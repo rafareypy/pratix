@@ -21,12 +21,16 @@ public class ProductTest {
         EntityManager  em = emf.createEntityManager();
         
         try {
-            Product product = new Product(10, "name 1");
+            Product product = new Product();
+            product.setName("product 2");
             
             
             
             em.getTransaction().begin();
             em.persist(product);
+            em.persist(new Product("produt 3"));
+            em.persist(new Product("produt 4"));
+            em.persist(new Product("produt 5"));
             em.getTransaction().commit();
         } catch (Exception e) {
             e.printStackTrace();
